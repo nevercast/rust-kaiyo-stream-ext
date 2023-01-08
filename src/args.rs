@@ -27,4 +27,8 @@ pub struct Args {
     /// Redis pubsub "--chan", default: on_model_selection
     #[arg(long="chan")]
     pub redis_channel: Option<String>,
+
+    /// Redis stats prefix, "--stats-prefix", default: selector_stat
+    #[arg(long="stats-prefix")]
+    pub redis_stats_prefix: Option<String>,
 }

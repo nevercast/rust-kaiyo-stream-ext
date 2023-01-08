@@ -1,5 +1,5 @@
-pub type MessageProducer = tokio::sync::broadcast::Sender<crate::messages::SelectionMessage>;
-pub type MessageConsumer = tokio::sync::broadcast::Receiver<crate::messages::SelectionMessage>;
+pub type MessageProducer = tokio::sync::broadcast::Sender<crate::messages::Message>;
+pub type MessageConsumer = tokio::sync::broadcast::Receiver<crate::messages::Message>;
 
 #[derive(Clone)]
 pub struct MessageConsumerFactory

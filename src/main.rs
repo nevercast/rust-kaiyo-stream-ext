@@ -57,6 +57,11 @@ async fn spawn_redis(args: Args, tx: MessageProducer) -> ApplicationResult {
         None => get_arg_from_env("RKSE_REDIS_CHANNEL")?.unwrap_or_else(|| "on_model_selection".to_string()),
     };
 
+    let redis_stats_prefix = match args.redis_stats_prefix {
+        Some(redis_stats_prefix) => redis_stats_prefix,
+        None => get_arg_from_env("RKSE_REDIS_STATS_PREFIX")?.unwrap_or_else(|| "selector_stat".to_string()),
+    };
+
     let creation_info = CreationInfo {
         redis_addr,
         redis_db,
@@ -65,6 +70,7 @@ async fn spawn_redis(args: Args, tx: MessageProducer) -> ApplicationResult {
             "" => None,
             _ => Some(redis_password),
         },
+        redis_stats_prefix
     };
 
     redis::create_redis_stream(creation_info, tx).await?;

@@ -17,3 +17,15 @@ pub struct SelectionMessage {
     pub model: String,
     pub actions: Option<SimpleControllerInput>,
 }
+
+#[derive(Serialize, Debug, Clone)]
+pub struct StatisticsMessage {
+    pub model: String,
+    pub counts: u64,
+}
+
+#[derive(Serialize, Debug, Clone)]
+pub enum Message {
+    Selection(SelectionMessage),
+    Statistics(StatisticsMessage),
+}
