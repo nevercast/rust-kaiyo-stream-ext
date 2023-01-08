@@ -11,8 +11,10 @@ Cargo.lock
 
 
 # Added by cargo
-
 /target
 
 # I put my test passwords in here LOL
 .vscode/launch.json
+
+# Sometimes I do this.
+/dist

@@ -15,7 +15,7 @@ pub struct Args {
     #[arg(short, long)]
     pub redis: Option<String>,
 
-    /// "--pass", default: None
+    /// "--pass", default: None.
     /// If you want to use password, you must set this value
     #[arg(long="pass")]
     pub redis_password: Option<String>,

@@ -122,6 +122,10 @@ async fn main() -> ApplicationResult {
     // initialize tracing
     tracing_subscriber::fmt::init();
 
+    // On Windows we need to enable ansi codes for colored output
+    #[cfg(windows)]
+    ansi_term::enable_ansi_support().unwrap();
+
     // parse args
     let args = Args::parse();
 
