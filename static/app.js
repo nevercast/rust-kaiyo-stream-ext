@@ -156,14 +156,7 @@ class App extends React.Component {
         }
 
         if (this.state.currentModel) {
-            this.state.modelHistory.push({
-                name: this.state.currentModel.name,
-                duration: `${this.currentModelDuration()}s`,
-            });
-        }
-
-        if (this.state.modelHistory.length > 3) {
-            this.state.modelHistory.shift();
+            this.state.modelHistory = [this.state.currentModel, ...this.state.modelHistory.slice(0, 2)]
         }
 
         this.state.currentModel = { name: modelName, startTime: DateTime.now() };
