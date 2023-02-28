@@ -1,7 +1,7 @@
 const e = React.createElement;
 const DateTime = luxon.DateTime;
 const CONNECTION_LOST_TIMEOUT = 10;
-const POPULAR_MODELS_LIMIT = 3; // Show this many most popular models.
+const POPULAR_MODELS_LIMIT = 7; // Show this many most popular models.
 
 const Sidebar = ({ currentModel, previousModels, popularModels }) => {
     const showPreviousModels = previousModels && previousModels.length > 0;
