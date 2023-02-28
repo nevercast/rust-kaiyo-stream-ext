@@ -1,6 +1,7 @@
 const e = React.createElement;
 const DateTime = luxon.DateTime;
 const CONNECTION_LOST_TIMEOUT = 10;
+const POPULAR_MODELS_LIMIT = 7; // Show this many most popular models.
 
 const Sidebar = ({ currentModel, previousModels, popularModels }) => {
     const showPreviousModels = previousModels && previousModels.length > 0;
@@ -187,6 +188,7 @@ class App extends React.Component {
         return Object.entries(this.state.modelUsage)
             .map(([name, count]) => ({ name, count }))
             .sort((a, b) => b.count - a.count)
+            .slice(0, POPULAR_MODELS_LIMIT)
             .map((model) => ({ name: model.name, detail: `${(model.count / total * 100).toFixed(2)}%` }));
     }
 
